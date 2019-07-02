@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/hms.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>RANDEVU</title>
+
+</head>
+
+<body>
+
+
+
+    <div class="alert alert-primary " role="alert ">
+        <a style="text-decoration: none;" href="home.html">
+                HASTANE KAYIT SİSTEMİ
+            </a>
+    </div>
+
+    <nav class="navbar navbar-light bg-light justify-content-between aras">
+        <a class="navbar-brand">Randevu Kayıt</a>
+        <form class="form-inline">
+
+            <button class="btn btn-primary my-2 my-sm-0" type="button" data-toggle="modal" data-target="#exampleModal">Randevu Ekle</button>
+        </form>
+    </nav>
+
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">RANDEVU FORMU</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group row">
+                        <label for="DoktorAdi" class="col-sm-2 col-form-label">Doktor Adı/Soyadı</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" name="DoktorAdi" id="DoktorAdi" placeholder="Doktor Adı/Soyad">
+                                <option id="Testa">Doktor Seçiniz</option>
+                            </select>
+
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <label for="HastaAdi" class="col-sm-2 col-form-label">Hasta Ad/Soyad</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" name="HastaAdi" id="HastaAdi" placeholder="Hasta Ad/Soyad">
+                                <option id="Testb">Hasta Seçiniz</option>
+                            </select>
+
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <label for="InsuranceNo" class="col-sm-2 col-form-label">Randevu Tarihi</label>
+                        <div class="col-sm-10">
+                            <input type="date" class="form-control" name="randevuTarih" id="randevuTarih" placeholder="Randevu Tarihi">
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                    <button type="button" id="kaydet" class="btn btn-primary randevuAl">Kaydet</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <table id="randevuTablo" class="table table-striped table-bordered display container" cellspacing="0" width="70%">
+        <thead>
+            <tr>
+                <th class="sutun th-sm">Doktor Adı/Soyadı</th>
+                <th class="sutun th-sm">Hasta Adı/Soyadı</th>
+                <th class="sutun th-sm">Randevu Tarihi</th>
+                <th class="sutun th-sm"></th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+
+
+    <footer>
+        © 2016-Angle
+    </footer>
+
+
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+    <script src="javascript/app.js"></script>
+
+    <!-- <script>
+        $(document).ready(function () {
+            $('#randevuTablo').DataTable({
+                columnDefs: [{
+                    targets: [0],
+                    orderData: [0, 1]
+                }, {
+                    targets: [1],
+                    orderData: [0, 1]
+                },{
+                    targets: [2],
+                    orderData: [2]
+                },{
+                    targets: [4],
+                    orderData: [4, 0]
+                }]
+            });
+        });
+
+        
+       
+    </script> -->
+
+
+
+    <script>
+        $(document).ready(function() {
+            $('#randevuTablo').DataTable({
+                language: {
+                    paginate: {
+                        next: 'Sonraki',
+                        previous: 'Önceki'
+                    },
+
+                    lengthMenu: "Kayıtları _MENU_ Göster",
+                    search: "Doktor Ara",
+                    zeroRecords: "KAYIT BULUNAMAMAKTADIR!",
+                    infoEmpty: "Gösteriliyor 0 to 0 of 0 ",
+
+                }
+            });
+            $('.dataTables_length').addClass('bs-select');
+        });
+    </script>
+
+
+
+
+
+</body>
+
+</html>

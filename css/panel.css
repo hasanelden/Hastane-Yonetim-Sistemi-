@@ -1,0 +1,45 @@
+.container{
+    width: 70%;
+}
+
+.disDivGenel {
+    padding: 10px 10px;
+}
+
+.disDivGenel div {
+    padding: 10px 5px;
+}
+
+.disDivGenel div:nth-child(2) {
+    padding: 6px 0px !important;
+}
+
+.disDivGenel .icon {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.disDivGenel .text {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.disDivGenel i {
+    font-size: 40px;
+    color: white;
+    margin: 15px;
+}
+
+.sayi {
+    font-size: 36px;
+    color: white;
+    margin: 15px;
+    font-weight: bold;
+}
+
+.aciklama {
+    font-size: 14px;
+    color: white;
+    margin: 15px;
+    font-weight: bold;
+}
